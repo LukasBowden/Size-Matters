@@ -1,0 +1,64 @@
+Exposed player stats variables
+	Torque mod
+	gravity mod
+	damage mod
+	health mod
+	Shield
+	Knockback chance
+	Knockback value
+	Cooldown modifier
+	Defence	
+	Health
+	Regen
+	Size
+	
+Items
+	Rarity rating
+	
+
+Tonight, Sudo enemy Spawning (on key at mouse pos)
+	Sudo enemy deaths (On collide with player)
+	Enemy death explosion (Meat Chunks)
+If time
+	Collecting meat Player increase size
+	Player attacks
+	Player and Enemy Health system
+
+EnemyPool
+List<EnemyType(enum?), EnemyCost>
+
+Enemy Spawn system
+	curSpawnLimit
+	spawnLimit
+	spawnTime
+	curSpawnTime
+FixedUpdate()
+{
+	curSpawnTime += 0.02f;
+	if(curSpawnTime > spawnTime)
+	{
+		curSpawnTime = 0;
+		check = randrange(0,100);
+		if (check <= 50)
+			//spawn nothing
+		if (check > 50 && check <= 75)
+			Spawn(0.25f);
+		if (check > 75 && check <= 90)
+			Spawn(0.5f);
+		if (check > 90 && check <= 100)
+			Spawn(1.0f);
+	}	
+	
+}
+
+void Spawn(int spawnUse)
+{
+	//Pull from enemyPool
+	
+	
+}	
+Spawner needs to pull from an enemy pool and check if the enemy cost is less than what is currently in the limit when curSpawnTime > spawnTime
+
+
+	
+	
