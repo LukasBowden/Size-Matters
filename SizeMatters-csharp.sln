@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{75DF9A87-6CD6-1DA2-3868-32EDA1B7C3B8}") = "SizeMatters Repo", "Assembly-CSharp-vs.csproj", "{B3D08F9C-AFD6-68A7-D521-49B3F76FF9F3}"
+Project("{34112BAB-40A0-75D1-726A-7B14729A24AE}") = "SizeMatters", "Assembly-CSharp-vs.csproj", "{E9271B63-EC82-F47D-1C92-7544E8292A55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B3D08F9C-AFD6-68A7-D521-49B3F76FF9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3D08F9C-AFD6-68A7-D521-49B3F76FF9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3D08F9C-AFD6-68A7-D521-49B3F76FF9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3D08F9C-AFD6-68A7-D521-49B3F76FF9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9271B63-EC82-F47D-1C92-7544E8292A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9271B63-EC82-F47D-1C92-7544E8292A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9271B63-EC82-F47D-1C92-7544E8292A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9271B63-EC82-F47D-1C92-7544E8292A55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-					GlobalSection(MonoDevelopProperties) = preSolution
+				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

@@ -1,0 +1,16 @@
+Prototype
+	What is it trying to prove
+	What do you not yet know about your idea
+-	What is the risky part of the game
+-	What are the required features
+-	What are the required assets
+*	What software suits this purpose
+		Do a blog for LO
+
+Planning
+	Tasks
+*	What software are we using to manage tasks
+*	Who is doing what
+*	Have the repo up
+*	Assign roles
+*	Create high concept doc

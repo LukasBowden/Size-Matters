@@ -1,0 +1,109 @@
+MeatChunk prefab
+	
+	sprite
+	transform
+	rigidbody2D
+	circleCollider
+
+Script**	
+float size;
+OnCollide(collider  col)
+{
+	if(col.tag == player)
+		destroy(this.gameobject);
+}
+
+Enemy Prefab
+	
+	sprite
+	transform
+	rigidbody2D
+	collider
+	
+Script**
+
+int chunksMin = 3;
+int chunksMax = 10;	
+
+onCollide(collider col)
+{
+	if(col.tag == player)
+		Die();
+}
+
+void Die()
+{
+	clone(/*Need variables for pos, velocity etc and prefab (meat)*/)
+	destroy(this.gameobject);
+}
+
+Player Script**
+
+OnCollide(Collider col)
+{
+	if(col.tag == meat)
+		scale += meat.size;
+}
+
+if(getKeyDown(keyCode(1)) && curAttackOneCD >= attackOneCD)
+{
+	/*
+	*	Can either use Raycast, faster calculations but attack is instant
+	*	or,
+	*	instantiate a projectile with travel time
+	*/
+}
+
+if(getKey(keyCode(2)) && curAttackTwoCD >= attackTwoCD)
+{
+	curChargeTime += deltaTime;
+	if(curChargeTime >= firstChargeTime && curChargeTime < secondChargeTime)
+	{
+		if(getKeyUp(keyCode(2)))
+		{
+			chargeTierOne
+		}
+	}
+	//etc
+	
+	/*
+	*	Can either use Raycast for instant attack and teleport player (can be juucey as fuck if done right)
+	*	or,
+	*	pretty much turn the player into a projectile
+	*/
+}
+
+if(getKeyDown(keyCode(3)) && curAttackThreeCD >= attackThreeCD)
+{
+	/*
+	*	Jump player into air
+	*	put player to ground
+	*	Raycast each side and damage enemies
+	*	can potentially deal damage based on distance from player
+	*	100% -- 80% -- 60% -- 40% -- 20% --
+	*	or,
+	*	Rather than raycast send projectiles either side of player
+	*/
+}
+
+
+
+
+Item
+	enum CommonItem
+	{
+	CI_BATTERY, CI_BALLOON, CI_FAN, CI_LEATHER_HIDE
+	}
+	enum UncommonItem
+	{
+	UCI_AIR_CANNON, UCI_BROKEN_HEART, UCI_DUMBBELL, UCI_SPIKES, UCI_FAIRY
+	}
+	enum RareItem
+	{
+	RI_FLAMING_TREADS, RI_HELIUM_BALLOON, RI_STEEL_HIDE, RI_GROWTH_SEEDS, RI_INVULNERABILITY, RI_SHIELD
+	}
+	enum LegendaryItem
+	{
+	LI_BLUE_OX, LI_BOTTLED_FAIRY, LI_SONIC_SPEED_SHOES
+	}
+	
