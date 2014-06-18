@@ -41,7 +41,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 8
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -79,9 +79,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b8b99bf28c33a4a837b673378f5b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMeat: 3
-  maxMeat: 10
-  meatChunk: {fileID: 100000, guid: f170378e8fb7dac45b1303c7f2c10367, type: 2}
+  minMeat: 1
+  maxMeat: 5
+  meatChunk1: {fileID: 100000, guid: ebcab8730c30e6c4fb0868a9c6f6ceac, type: 2}
+  meatChunk2: {fileID: 100000, guid: b3528a5689112f04abf034e86bc00bc5, type: 2}
+  xVelocityRangeChunk: 20
+  yVelocityRangeChunk: 30
+  maxHealth: 100
+  curHealth: 100
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

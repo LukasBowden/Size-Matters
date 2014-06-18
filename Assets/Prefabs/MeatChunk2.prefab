@@ -10,12 +10,11 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
+  - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
-  - 58: {fileID: 5800000}
-  - 58: {fileID: 5800002}
-  m_Layer: 10
-  m_Name: Player
-  m_TagString: Player
+  m_Layer: 9
+  m_Name: MeatChunk2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.23406172, y: -1.21563971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,8 +45,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5800000
-CircleCollider2D:
+--- !u!60 &6000000
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -55,19 +54,16 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .319999993
-  m_Center: {x: 0, y: 0}
---- !u!58 &5800002
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Radius: .319999993
-  m_Center: {x: 0, y: 0}
+  m_Poly:
+    m_Paths:
+    - - {x: -.342616081, y: .173740745}
+      - {x: -.479297161, y: -.0419021845}
+      - {x: -.414523602, y: -.192741752}
+      - {x: -.167449951, y: -.191224933}
+      - {x: .100906849, y: -.0964074135}
+      - {x: .51140213, y: -.125616074}
+      - {x: .511391401, y: -.0833466053}
+      - {x: -.0496206284, y: .0285052061}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,27 +72,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 365cd01375b3df845963edcc5a854e9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2943cef3887df294294c0c3243cd24ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerGround:
-    serializedVersion: 2
-    m_Bits: 256
-  layerEnemy:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpForce: 20
-  airSpeedLimit: 10
-  airSpeedFactor: .300000012
-  playerTorque: 30
-  numJumps: 0
-  attackOneCD: .200000003
-  attackTwoCD: 2
-  attackThreeCD: 1
-  chargeTime: 1
-  jumpTime: .200000003
-  spit: {fileID: 100000, guid: 7a92b8819b85e8b4d82450cefe32eb41, type: 2}
-  Enemy: {fileID: 100000, guid: 460296cd3a57c004d8a2efaaf979b024, type: 2}
+  minSize: .5
+  maxSize: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,10 +96,10 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 262dae20ac31b8f4699a7f779ea79623, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 157ab7c0742e3704987c22aac3f2944b, type: 3}
+  m_Color: {r: 1, g: .507352948, b: .507352948, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

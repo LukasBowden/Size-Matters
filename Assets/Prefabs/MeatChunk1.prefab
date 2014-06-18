@@ -13,7 +13,7 @@ GameObject:
   - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
   m_Layer: 9
-  m_Name: MeatChunk
+  m_Name: MeatChunk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.69135475, y: -1.71041858, z: 0}
+  m_LocalPosition: {x: -5.9445591, y: -3.16917491, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,15 +56,15 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: -.0677309036, y: .259052873}
-      - {x: -.213722706, y: .125044584}
-      - {x: -.309273243, y: .0425550938}
-      - {x: -.346498489, y: -.111608148}
-      - {x: -.201387882, y: -.265330672}
-      - {x: .115044117, y: -.280220509}
-      - {x: .298106194, y: -.221387863}
-      - {x: .316718102, y: -.0918939114}
-      - {x: .153877258, y: .174669504}
+    - - {x: -.0793619156, y: .228036165}
+      - {x: -.151689053, y: .148307323}
+      - {x: -.274379253, y: .0464322567}
+      - {x: -.323235989, y: -.111608028}
+      - {x: -.158739567, y: -.234313965}
+      - {x: .0801501274, y: -.256958008}
+      - {x: .255457878, y: -.20587945}
+      - {x: .285701275, y: -.0802624226}
+      - {x: .181016922, y: .139775515}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,8 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2943cef3887df294294c0c3243cd24ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVelocityRange: 50
-  yVelocityRange: 50
   minSize: .5
   maxSize: 1
 --- !u!212 &21200000

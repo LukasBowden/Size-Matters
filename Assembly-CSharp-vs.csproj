@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Meat.cs" />
      <Compile Include="Assets\Scripts\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\PlayerSystems.cs" />
+     <Compile Include="Assets\Scripts\Spit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

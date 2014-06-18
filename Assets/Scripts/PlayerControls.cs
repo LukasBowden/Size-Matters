@@ -26,13 +26,16 @@ public class PlayerControls : MonoBehaviour
 	private float curAttackThreeCD = 5.0f;
 
 	public float chargeTime = 2.0f;
+	private int chargeStage = 0;
 	private float curChargeTime = 0.0f;
 	private Vector2 prevPos;
 	private bool charging = false;
+	private bool midCharge = false;
 
 	public float jumpTime = 0.2f;
 	private float curJumpTime = 0.0f;
-	private bool jumpAttack;
+	private bool jumpAttack = false;
+	private bool midSlam = false;
 
 	private short move;
 	private short facing;
@@ -44,6 +47,7 @@ public class PlayerControls : MonoBehaviour
 
 	private float scale;
 
+	public GameObject spit;
 	//adsasdasdasdasdasdasd
 	public GameObject Enemy;
 	//asdasdasdasdasdasdasd
@@ -126,13 +130,31 @@ public class PlayerControls : MonoBehaviour
 		}
 	
 		//Player Attacks
-		AttackOne();
+		if(!charging)
+		{
+			AttackOne();
+			AttackThree();
+		}
 		AttackTwo();
-		AttackThree();
+
+		//Testing Controls
 
 		//SudoEnemySpawning
-		if (Input.GetMouseButton (0))
+		if (Input.GetMouseButtonDown (0))
+		{
 			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			/*
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+			Instantiate (Enemy, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+*/
+		}
 		//END SudoEnemySpawning
 	}
 
@@ -140,11 +162,13 @@ public class PlayerControls : MonoBehaviour
 	{
 		if(Input.GetKey(KeyCode.A) && curAttackOneCD >= attackOneCD)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(rigidbody2D.transform.position, facing * Vector2.right, boundingSize + 5.0f , layerEnemy);
-			Debug.Log("hit1");
-			if(hit.collider != null)
+			Instantiate(spit, new Vector2 (transform.position.x + boundingSize * facing, transform.position.y), new Quaternion(0,0,0,0));
+			RaycastHit2D[] hit = Physics2D.RaycastAll(rigidbody2D.transform.position, facing * Vector2.right, boundingSize + 5.0f , layerEnemy);
+			for(int i = 0; i < hit.Length; ++i)
+			if(hit[i].collider != null)
 			{
-				hit.transform.gameObject.GetComponent<Enemy>().Die();
+				hit[i].transform.gameObject.GetComponent<Enemy>().Damage(this.gameObject.GetComponent<PlayerSystems>().damage / 2);
+				hit[i].transform.gameObject.GetComponent<Enemy>().Knockback(facing * this.gameObject.GetComponent<PlayerSystems>().knockback);
 			}
 			curAttackOneCD = 0.0f;
 		}
@@ -163,24 +187,44 @@ public class PlayerControls : MonoBehaviour
 		}
 		if (Input.GetKeyUp (KeyCode.S) && curChargeTime < chargeTime && curAttackTwoCD >= attackTwoCD)
 		{
+			chargeStage = 1;
 			charging = false;
+			midCharge = true;
 			rigidbody2D.velocity = new Vector2(20.0f * facing, rigidbody2D.velocity.y);
 			curChargeTime = 0.0f;
 			curAttackTwoCD = 0.0f;
 		}
 		if (Input.GetKeyUp (KeyCode.S) && curChargeTime > chargeTime * 1 && curChargeTime < chargeTime * 2 && curAttackTwoCD >= attackTwoCD)
 		{
+			chargeStage = 2;
 			charging = false;
+			midCharge = true;
 			rigidbody2D.velocity = new Vector2(40.0f * facing, rigidbody2D.velocity.y);
 			curChargeTime = 0.0f;
 			curAttackTwoCD = 0.0f;
 		}
 		if (Input.GetKeyUp (KeyCode.S) && curChargeTime > chargeTime * 2 && curAttackTwoCD >= attackTwoCD)
 		{
+			chargeStage = 3;
 			charging = false;
+			midCharge = true;
 			rigidbody2D.velocity = new Vector2(60.0f * facing, rigidbody2D.velocity.y);
 			curChargeTime = 0.0f;
 			curAttackTwoCD = 0.0f;
+		}
+
+		//Instantiate(spit, new Vector2 (transform.position.x + ((boundingSize + chargeStage + 3) * facing), transform.position.y), new Quaternion(0,0,0,0));
+
+		if(midCharge)// && curMidChargeTime < midChardTime)		
+		{
+			RaycastHit2D[] hit = Physics2D.RaycastAll(rigidbody2D.transform.position, facing * Vector2.right, boundingSize + chargeStage + 3, layerEnemy);
+			for(int i = 0; i < hit.Length; ++i)
+			if(hit[i].collider != null)
+			{
+				hit[i].transform.gameObject.GetComponent<Enemy>().Damage(this.gameObject.GetComponent<PlayerSystems>().damage / 2 * chargeStage);
+				hit[i].transform.gameObject.GetComponent<Enemy>().Knockback(facing * this.gameObject.GetComponent<PlayerSystems>().knockback * chargeStage * 2);
+			}
+			midCharge = false;
 		}
 	}
 	private void AttackThree()
@@ -195,7 +239,26 @@ public class PlayerControls : MonoBehaviour
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, -50.0f - (scale * 5));
 			curAttackThreeCD = 0.0f;
 			curJumpTime = 0.0f;
+			midSlam = true;
 			jumpAttack = false;
+		}
+		if(midSlam && grounded)
+		{
+			midSlam = false;
+			RaycastHit2D[] hit = Physics2D.RaycastAll(rigidbody2D.transform.position, Vector2.right, boundingSize + 3, layerEnemy);
+			for(int i = 0; i < hit.Length; ++i)
+			if(hit[i].collider != null)
+			{
+				hit[i].transform.gameObject.GetComponent<Enemy>().Damage(this.gameObject.GetComponent<PlayerSystems>().damage / 2 * 3.5f * 0);
+				hit[i].transform.gameObject.GetComponent<Enemy>().Knockback(this.gameObject.GetComponent<PlayerSystems>().knockback, 20);
+			}
+			hit = Physics2D.RaycastAll(rigidbody2D.transform.position, -1 * Vector2.right, boundingSize + 3, layerEnemy);
+			for(int i = 0; i < hit.Length; ++i)
+				if(hit[i].collider != null)
+			{
+				hit[i].transform.gameObject.GetComponent<Enemy>().Damage(this.gameObject.GetComponent<PlayerSystems>().damage / 2 * 3.5f * 0);
+				hit[i].transform.gameObject.GetComponent<Enemy>().Knockback(-1 * this.gameObject.GetComponent<PlayerSystems>().knockback, 20);
+			}
 		}
 	}
 	private void GroundCheck()
@@ -217,9 +280,14 @@ public class PlayerControls : MonoBehaviour
 		{
 			rigidbody2D.AddForce(new Vector2(-200 * (Mathf.Abs(rigidbody2D.velocity.x) + 0.5f), 0));
 		}
-		else{
+		else
+		{
 
 		}
+	}
+	public short GetFacing()
+	{
+		return facing;
 	}
 }
 

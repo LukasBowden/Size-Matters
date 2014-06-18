@@ -1,9 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerControls.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerControls.cs" Line="190" Column="22" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="41" Column="49" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="86" Column="3" />
+      <File FileName="Assets\Scripts\PlayerControls.cs" Line="258" Column="5" />
+      <File FileName="Assets\Scripts\Meat.cs" Line="14" Column="16" />
+      <File FileName="Assets\Scripts\PlayerSystems.cs" Line="55" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
