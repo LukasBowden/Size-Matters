@@ -23,28 +23,27 @@ public class PlayerSystems : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+
+	}
+
+	void Update()
+	{
 		if(!dead)
 		{			
 			if( health < 0)
 			{
 				Die ();
 			}
-			if( health <  maxHealth *  scale)
+			if( health <  maxHealth * scale)
 			{
-				 health +=  healthRegen;
+				health +=  healthRegen * Time.deltaTime;
 			}
-			if( health >  maxHealth *  scale)
+			if( health >  maxHealth * scale)
 			{
-				 health =  maxHealth *  scale;
+				health =  maxHealth * scale;
 			}
-			Debug.Log ( maxHealth *  scale);
+			Debug.Log ( maxHealth * scale);
 		}
-
-	}
-
-	void Update()
-	{
-			
 		if(Input.GetKeyDown(KeyCode.KeypadPlus))
 			 scale += 1;
 		if(Input.GetKeyDown(KeyCode.KeypadMinus))
@@ -53,9 +52,8 @@ public class PlayerSystems : MonoBehaviour {
 
 	private void Die()
 	{
-		//Kill Player, for now set to 0, 0
 		dead = true;
-		rigidbody2D.transform.position = new Vector2(0, 0);
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	public void AddMeat(float meatScale)

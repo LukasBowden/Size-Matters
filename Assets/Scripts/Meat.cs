@@ -29,11 +29,16 @@ public class Meat : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
+		/*
 		if (col.gameObject.tag == "Player") 
 		{
 			col.GetComponent<PlayerSystems>().AddMeat(scale);
 			//Add size/ health to player
 			Destroy(this.gameObject);
-		}
+		}*/
+	}
+	public float getScale()
+	{
+		return scale;
 	}
 }

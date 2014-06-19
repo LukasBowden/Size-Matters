@@ -23,6 +23,10 @@ public class Enemy : MonoBehaviour {
 
 	public float maxHealth = 100.0f;
 	public float curHealth = 100.0f;
+
+	public bool stunned = false;
+	private float stunTime = 0.0f;
+	private float curStunTime = 0.0f;
 	// Use this for initialization
 
 	void Start ()
@@ -33,15 +37,21 @@ public class Enemy : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if(curHealth <= 0.0f)
-		{
-			Die ();
-		}
+
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
+		if(stunned)
+		{
+			curStunTime += Time.deltaTime;
+			if(curStunTime >= stunTime)
+			{
+				stunned = false;
+			}
+		}
+
 		if(Input.GetKeyDown(KeyCode.K))
 		{
 			Die();
@@ -85,7 +95,10 @@ public class Enemy : MonoBehaviour {
 	public void Damage(float damageDealt)
 	{
 		curHealth -= damageDealt;
-		Debug.Log(curHealth);
+		if(curHealth <= 0.0f)
+		{
+			Die ();
+		}
 	}
 
 	public void Knockback(float knockbackAmount)
@@ -95,5 +108,11 @@ public class Enemy : MonoBehaviour {
 	public void Knockback(float knockbackAmount, float verticalKnockback)
 	{
 		rigidbody2D.velocity = new Vector2(knockbackAmount, verticalKnockback);
+	}
+	public void Stun(float time)
+	{
+		stunned = true;
+		stunTime = time;
+		curStunTime = 0.0f;
 	}
 }
