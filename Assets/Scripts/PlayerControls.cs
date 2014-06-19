@@ -298,13 +298,13 @@ public class PlayerControls : MonoBehaviour
 		if (col.gameObject.tag == "Enemy") 
 		{
 			if(col.GetComponent<SizeDeath>().transform.localScale.x < transform.localScale.x/2 && col.GetComponent<SizeDeath>().transform.localScale.y < transform.localScale.y/2)
-				col.transform.GetComponentInParent<Enemy>().Die();
+				col.transform.parent.GetComponent<Enemy>().Die();
 		}
 		if (col.gameObject.tag == "Meat") 
 		{
 			if(col.GetComponent<SizeDeath>().transform.localScale.x < transform.localScale.x && col.GetComponent<SizeDeath>().transform.localScale.y < transform.localScale.y)
 			{
-				this.GetComponent<PlayerSystems>().AddMeat(col.transform.GetComponentInParent<Meat>().getScale());
+				this.GetComponent<PlayerSystems>().AddMeat(col.transform.parent.GetComponent<Meat>().getScale());
 				Destroy(col.transform.parent.gameObject);
 			}
 		}

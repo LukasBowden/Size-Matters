@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AIProcessSeek.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AIProcessStayRange.cs">
     <Files>
+      <File FileName="..\sizematters\Assets\Scripts\PlayerControls.cs" Line="311" Column="3" />
       <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControls.cs" Line="293" Column="4" />
-      <File FileName="Assets\Scripts\Meat.cs" Line="10" Column="29" />
-      <File FileName="Assets\Scripts\PlayerSystems.cs" Line="23" Column="30" />
+      <File FileName="Assets\Scripts\PlayerControls.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Meat.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerSystems.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AIProcessSeek.cs" Line="27" Column="31" />
       <File FileName="Assets\Scripts\AIProcessRelentlessSeek.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AIProcessStayRange.cs" Line="26" Column="3" />
