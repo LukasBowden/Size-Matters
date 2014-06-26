@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AIProcessStayRange.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\sizematters\Assets\Scripts\AIProcessSeek.cs">
     <Files>
-      <File FileName="..\sizematters\Assets\Scripts\PlayerControls.cs" Line="311" Column="3" />
+      <File FileName="..\sizematters\Assets\Scripts\EnemyFactory.cs" Line="69" Column="25" />
+      <File FileName="..\sizematters\Assets\Scripts\EnemyFactory.cs" Line="69" Column="25" />
       <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerControls.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Meat.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerSystems.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AIProcessSeek.cs" Line="27" Column="31" />
-      <File FileName="Assets\Scripts\AIProcessRelentlessSeek.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AIProcessStayRange.cs" Line="26" Column="3" />
+      <File FileName="..\sizematters\Assets\Scripts\AIProcessStayRange.cs" Line="1" Column="1" />
+      <File FileName="..\sizematters\Assets\Scripts\AIProcessSeek.cs" Line="97" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

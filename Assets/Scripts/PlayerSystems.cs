@@ -42,7 +42,6 @@ public class PlayerSystems : MonoBehaviour {
 			{
 				health =  maxHealth * scale;
 			}
-			Debug.Log ( maxHealth * scale);
 		}
 		if(Input.GetKeyDown(KeyCode.KeypadPlus))
 			 scale += 1;
